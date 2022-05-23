@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',array('uses'=>'App\Http\Controllers\AnaSayfaController@index'))->name('ana_sayfa');
+
+
+
+
