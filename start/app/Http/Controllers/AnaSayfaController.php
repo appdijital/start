@@ -22,11 +22,30 @@ class AnaSayfaController extends Controller
     }
     public function cek($id,$id1){
 
-        //$veri=Company::where('id',$id)->with('customer_yas',$id1)->first();
-
         $veri=Company::join('customer','customer.company_id','company.id')->where('company.id',$id)->where('customer.birth_date','>',$id1)->get();
 
         return view("sayfa.liste",compact(['veri']));
+    }
+    public function cek1($id,$id1){
+
+        $veri=Company::where('id',$id)->with('customer')->whereHas('customer', function ($query) use ($id1) {
+            return $query->where('customer.birth_date','>',$id1);
+        })->first();
+
+        return view("sayfa.liste1",compact(['veri']));
+    }
+    public function cek2($id,$id1){
+
+        $veri = Company::where('id',$id)->with(['customer'=>function($query) use ($id1) {
+            $query->where('birth_date','>',$id1);
+        }])->first();
+
+        if($veri){
+
+            return view("sayfa.liste2",compact(['veri']));
+        }else{
+            return "Firma YOk";
+        }
     }
 
 

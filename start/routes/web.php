@@ -17,7 +17,9 @@ Route::get('/',array('uses'=>'App\Http\Controllers\AnaSayfaController@index'))->
 Route::get('/test',array('uses'=>'App\Http\Controllers\AnaSayfaController@test'))->name('test');
 
 
-Route::get('/company/{id}/customers/born-after/{id1}',array('uses'=>'App\Http\Controllers\AnaSayfaController@cek'))->name('cek');
+Route::get('/company2/{id}/customers/born-after/{id1}',array('uses'=>'App\Http\Controllers\AnaSayfaController@cek'))->name('cek');
 
+Route::get('/company1/{id}/customers/born-after/{id1}',array('uses'=>'App\Http\Controllers\AnaSayfaController@cek1'))->name('cek1');
 
+Route::get('/company/{id}/customers/born-after/{id1}',array('uses'=>'App\Http\Controllers\AnaSayfaController@cek2'))->name('cek2');
 
