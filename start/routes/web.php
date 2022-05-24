@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',array('uses'=>'App\Http\Controllers\AnaSayfaController@index'))->name('ana_sayfa');
+Route::get('/test',array('uses'=>'App\Http\Controllers\AnaSayfaController@test'))->name('test');
 
+
+Route::get('/company/{id}/customers/born-after/{id1}',array('uses'=>'App\Http\Controllers\AnaSayfaController@cek'))->name('cek');
 
 
 
